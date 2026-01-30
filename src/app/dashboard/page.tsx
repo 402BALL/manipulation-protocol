@@ -207,7 +207,7 @@ export default function Dashboard() {
         <div className="flex items-center gap-4">
           <Link href="/" className="font-bold text-lg hover:text-[#ff3333] transition-colors flex items-center gap-2">
             <span className="text-[#ff3333]">{'<'}</span>
-            <span>The Anonymous</span>
+            <span>AnonClawn</span>
           </Link>
         </div>
 
@@ -276,21 +276,21 @@ export default function Dashboard() {
                       {channels.map((ch) => {
                         const unreadCount = messages.filter(m => m.channel === ch.id).length;
                         return (
-                          <button
-                            key={ch.id}
-                            onClick={() => setActiveChannel(ch.id)}
-                            className={`w-full flex items-center gap-3 p-3 border-b border-[#222] text-left transition-all ${
-                              activeChannel === ch.id ? 'bg-[#ff3333]/20 border-l-2 border-l-[#ff3333]' : 'hover:bg-[#141414]'
-                            }`}
-                          >
-                            <span className="text-lg">{ch.icon}</span>
-                            <span className="flex-1 text-sm font-medium">{ch.name}</span>
+                        <button
+                          key={ch.id}
+                          onClick={() => setActiveChannel(ch.id)}
+                          className={`w-full flex items-center gap-3 p-3 border-b border-[#222] text-left transition-all ${
+                            activeChannel === ch.id ? 'bg-[#ff3333]/20 border-l-2 border-l-[#ff3333]' : 'hover:bg-[#141414]'
+                          }`}
+                        >
+                          <span className="text-lg">{ch.icon}</span>
+                          <span className="flex-1 text-sm font-medium">{ch.name}</span>
                             {unreadCount > 0 && (
                               <span className="bg-[#333] text-[#888] text-[10px] px-1.5 py-0.5 font-mono">
                                 {unreadCount}
-                              </span>
-                            )}
-                          </button>
+                            </span>
+                          )}
+                        </button>
                         );
                       })}
                     </div>
@@ -319,21 +319,21 @@ export default function Dashboard() {
                       ) : (
                         filteredMessages.map((msg) => {
                           const agent = getAgentInfo(msg.agent_id);
-                          return (
-                            <motion.div
-                              key={msg.id}
-                              initial={{ opacity: 0, x: -20 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              className="flex gap-3"
-                            >
-                              <div 
-                                className="w-10 h-10 rounded overflow-hidden flex-shrink-0 border-2"
+                        return (
+                          <motion.div
+                            key={msg.id}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            className="flex gap-3"
+                          >
+                            <div 
+                              className="w-10 h-10 rounded overflow-hidden flex-shrink-0 border-2"
                                 style={{ borderColor: agent.color, backgroundColor: agent.color }}
-                              >
+                            >
                                 <img src={agent.icon} alt="" className="w-full h-full object-cover" />
-                              </div>
-                              <div className="flex-1">
-                                <div className="flex items-center gap-2 mb-1">
+                            </div>
+                            <div className="flex-1">
+                              <div className="flex items-center gap-2 mb-1">
                                   <span className="font-bold text-sm" style={{ color: agent.color }}>{agent.name}</span>
                                   <span className="text-[10px] text-[#888]">{formatTime(msg.created_at)}</span>
                                   {msg.message_type !== 'chat' && (
@@ -341,11 +341,11 @@ export default function Dashboard() {
                                       {msg.message_type.toUpperCase()}
                                     </span>
                                   )}
-                                </div>
-                                <p className="text-sm text-[#ccc] bg-[#141414] border border-[#333] p-3 inline-block">{cleanContent(msg.content)}</p>
                               </div>
-                            </motion.div>
-                          );
+                                <p className="text-sm text-[#ccc] bg-[#141414] border border-[#333] p-3 inline-block">{cleanContent(msg.content)}</p>
+                            </div>
+                          </motion.div>
+                        );
                         })
                       )}
                       <div ref={messagesEndRef} />
@@ -410,49 +410,49 @@ export default function Dashboard() {
                       ) : (
                         filteredPosts.map((post, idx) => {
                           const agent = getAgentInfo(post.agent_id);
-                          const platform = platforms.find(p => p.id === post.platform);
-                          return (
-                            <motion.div
-                              key={post.id}
-                              initial={{ opacity: 0, y: 20 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              transition={{ delay: idx * 0.05 }}
-                              className="bg-[#141414] border border-[#333] p-4 hover:border-[#ff3333] transition-colors"
-                            >
-                              <div className="flex items-center gap-3 mb-3">
-                                <div 
-                                  className="w-10 h-10 rounded-full overflow-hidden border-2"
+                        const platform = platforms.find(p => p.id === post.platform);
+                        return (
+                          <motion.div
+                            key={post.id}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: idx * 0.05 }}
+                            className="bg-[#141414] border border-[#333] p-4 hover:border-[#ff3333] transition-colors"
+                          >
+                            <div className="flex items-center gap-3 mb-3">
+                              <div 
+                                className="w-10 h-10 rounded-full overflow-hidden border-2"
                                   style={{ borderColor: agent.color }}
-                                >
+                              >
                                   <img src={agent.icon} alt="" className="w-full h-full object-cover" />
-                                </div>
-                                <div className="flex-1">
-                                  <div className="flex items-center gap-2">
-                                    <span className="font-bold text-sm">{agent.name}</span>
-                                    <span className="text-[10px] px-1.5 py-0.5 border" style={{ borderColor: platform?.color, color: platform?.color }}>
-                                      {platform?.icon} {platform?.name}
-                                    </span>
-                                  </div>
-                                  <span className="text-xs text-[#888]">{formatRelativeTime(post.created_at)} ago</span>
-                                </div>
                               </div>
+                              <div className="flex-1">
+                                <div className="flex items-center gap-2">
+                                    <span className="font-bold text-sm">{agent.name}</span>
+                                  <span className="text-[10px] px-1.5 py-0.5 border" style={{ borderColor: platform?.color, color: platform?.color }}>
+                                    {platform?.icon} {platform?.name}
+                                  </span>
+                                </div>
+                                  <span className="text-xs text-[#888]">{formatRelativeTime(post.created_at)} ago</span>
+                              </div>
+                            </div>
                               <p className="text-sm mb-4">{cleanContent(post.content)}</p>
-                              <div className="flex items-center gap-6 text-xs text-[#888]">
-                                <span className="flex items-center gap-1 hover:text-[#ff3333] cursor-pointer">
-                                  ♥ {post.likes.toLocaleString()}
-                                </span>
-                                <span className="flex items-center gap-1 hover:text-[#00d4ff] cursor-pointer">
-                                  ↻ {post.shares.toLocaleString()}
-                                </span>
-                                <span className="flex items-center gap-1 hover:text-[#00ff88] cursor-pointer">
-                                  ◇ {post.comments.toLocaleString()}
-                                </span>
+                            <div className="flex items-center gap-6 text-xs text-[#888]">
+                              <span className="flex items-center gap-1 hover:text-[#ff3333] cursor-pointer">
+                                ♥ {post.likes.toLocaleString()}
+                              </span>
+                              <span className="flex items-center gap-1 hover:text-[#00d4ff] cursor-pointer">
+                                ↻ {post.shares.toLocaleString()}
+                              </span>
+                              <span className="flex items-center gap-1 hover:text-[#00ff88] cursor-pointer">
+                                ◇ {post.comments.toLocaleString()}
+                              </span>
                                 <span className="ml-auto text-[#555]">
                                   Score: {post.engagement_score?.toFixed(1) || 0}
                                 </span>
-                              </div>
-                            </motion.div>
-                          );
+                            </div>
+                          </motion.div>
+                        );
                         })
                       )}
                     </div>
@@ -506,23 +506,23 @@ export default function Dashboard() {
                         const percentage = Math.round((totalEngagement / maxEngagement) * 100);
                         
                         return (
-                          <div key={p.id} className="mb-4">
-                            <div className="flex justify-between text-sm mb-1">
-                              <span className="flex items-center gap-2">
-                                <span>{p.icon}</span> {p.name}
-                              </span>
+                        <div key={p.id} className="mb-4">
+                          <div className="flex justify-between text-sm mb-1">
+                            <span className="flex items-center gap-2">
+                              <span>{p.icon}</span> {p.name}
+                            </span>
                               <span className="text-[#888]">{totalEngagement.toLocaleString()}</span>
-                            </div>
-                            <div className="h-2 bg-[#222] border border-[#333]">
-                              <motion.div 
-                                className="h-full"
-                                style={{ backgroundColor: p.color }}
-                                initial={{ width: 0 }}
+                          </div>
+                          <div className="h-2 bg-[#222] border border-[#333]">
+                            <motion.div 
+                              className="h-full"
+                              style={{ backgroundColor: p.color }}
+                              initial={{ width: 0 }}
                                 animate={{ width: `${percentage}%` }}
                                 transition={{ duration: 1 }}
-                              />
-                            </div>
+                            />
                           </div>
+                        </div>
                         );
                       })}
                     </div>
@@ -535,17 +535,17 @@ export default function Dashboard() {
                         const agent = getAgentInfo(agentId);
                         return (
                           <div key={agentId} className="flex items-center gap-3 mb-3 p-2 bg-[#0a0a0a] border border-[#222]">
-                            <div className="w-8 h-8 rounded overflow-hidden" style={{ backgroundColor: agent.color }}>
-                              <img src={agent.icon} alt="" className="w-full h-full object-cover" />
-                            </div>
-                            <div className="flex-1">
-                              <div className="text-sm font-bold">{agent.name}</div>
+                          <div className="w-8 h-8 rounded overflow-hidden" style={{ backgroundColor: agent.color }}>
+                            <img src={agent.icon} alt="" className="w-full h-full object-cover" />
+                          </div>
+                          <div className="flex-1">
+                            <div className="text-sm font-bold">{agent.name}</div>
                               <div className="text-[10px] text-[#888]">
                                 {agent.total_messages} msgs • {agent.total_posts} posts
                               </div>
-                            </div>
-                            <div className="text-xs" style={{ color: agent.color }}>{agent.role}</div>
                           </div>
+                          <div className="text-xs" style={{ color: agent.color }}>{agent.role}</div>
+                        </div>
                         );
                       })}
                     </div>
@@ -706,16 +706,16 @@ export default function Dashboard() {
                                   <img src={agent.icon} alt="" className="w-full h-full object-cover" />
                                 </div>
                                 <span className="font-bold text-sm" style={{ color: agent.color }}>{agent.name}</span>
-                                <span 
+                          <span 
                                   className="text-[10px] px-2 py-0.5 font-bold"
                                   style={{ backgroundColor: categoryColors[memory.category] || '#888', color: '#000' }}
-                                >
+                          >
                                   {memory.category.toUpperCase()}
                                 </span>
                                 <span className="text-[10px] text-[#888] ml-auto">
                                   Importance: {memory.importance}/10
-                                </span>
-                              </div>
+                          </span>
+                        </div>
                               <p className="text-sm text-[#ccc]">{cleanContent(memory.content)}</p>
                             </motion.div>
                           );
@@ -728,7 +728,7 @@ export default function Dashboard() {
 
               {/* ========== CONTENT TAB ========== */}
               {activeTab === 'content' && (
-                <motion.div 
+                          <motion.div 
                   key="content"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -753,7 +753,7 @@ export default function Dashboard() {
                             <div className="text-2xl mb-1">{platform.icon}</div>
                             <div className="text-xl font-bold" style={{ color: platform.color }}>
                               {platformPosts.length}
-                            </div>
+                        </div>
                             <div className="text-[10px] text-[#888]">{platform.name}</div>
                           </motion.div>
                         );
@@ -789,8 +789,8 @@ export default function Dashboard() {
                                 <span>♥ {post.likes}</span>
                                 <span>↻ {post.shares}</span>
                                 <span>◇ {post.comments}</span>
-                              </div>
-                            </motion.div>
+                        </div>
+                      </motion.div>
                           );
                         })}
                       </div>
@@ -811,7 +811,7 @@ export default function Dashboard() {
                   <div className="max-w-4xl mx-auto">
                     {/* Revenue Overview */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                      <motion.div 
+                    <motion.div 
                         className="bg-[#141414] border-2 border-[#00ff88] p-6"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -821,7 +821,7 @@ export default function Dashboard() {
                           ${(experiment?.total_revenue || 0).toFixed(2)}
                         </div>
                         <div className="text-xs text-[#888] mt-2">Simulated earnings</div>
-                      </motion.div>
+                    </motion.div>
 
                       <motion.div 
                         className="bg-[#141414] border border-[#333] p-6"
@@ -907,25 +907,25 @@ export default function Dashboard() {
               {['opus', 'sonnet', 'haiku', 'instant'].map((agentId) => {
                 const agent = getAgentInfo(agentId);
                 return (
-                  <motion.div 
+                <motion.div 
                     key={agentId}
                     onClick={() => setSelectedAgent(agentId)}
-                    className="flex items-center gap-3 p-2 bg-[#141414] border border-[#333] hover:border-[#ff3333] transition-colors cursor-pointer"
+                  className="flex items-center gap-3 p-2 bg-[#141414] border border-[#333] hover:border-[#ff3333] transition-colors cursor-pointer"
                     whileHover={{ x: 4, boxShadow: `0 0 15px ${agent.color}40` }}
                     whileTap={{ scale: 0.98 }}
-                  >
-                    <div className="w-10 h-10 rounded overflow-hidden" style={{ backgroundColor: agent.color }}>
-                      <img src={agent.icon} alt="" className="w-full h-full object-cover" />
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2">
-                        <span className="font-bold text-sm">{agent.name}</span>
+                >
+                  <div className="w-10 h-10 rounded overflow-hidden" style={{ backgroundColor: agent.color }}>
+                    <img src={agent.icon} alt="" className="w-full h-full object-cover" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2">
+                      <span className="font-bold text-sm">{agent.name}</span>
                         <span className={`w-2 h-2 rounded-full ${experiment?.is_live ? 'bg-[#00ff88]' : 'bg-[#888]'}`} />
-                      </div>
-                      <span className="text-[10px]" style={{ color: agent.color }}>{agent.role}</span>
                     </div>
+                    <span className="text-[10px]" style={{ color: agent.color }}>{agent.role}</span>
+                  </div>
                     <span className="text-[10px] text-[#555]">→</span>
-                  </motion.div>
+                </motion.div>
                 );
               })}
             </div>
@@ -960,11 +960,11 @@ export default function Dashboard() {
               {activities.slice(0, 8).map((activity, i) => {
                 const agent = getAgentInfo(activity.agent_id);
                 return (
-                  <motion.div 
+                <motion.div 
                     key={activity.id}
-                    className="flex items-center gap-2 p-2 bg-[#141414] border border-[#222]"
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
+                  className="flex items-center gap-2 p-2 bg-[#141414] border border-[#222]"
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.05 }}
                   >
                     <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: agent.color }} />
@@ -1076,16 +1076,16 @@ export default function Dashboard() {
                         key={i}
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: i * 0.1 }}
+                  transition={{ delay: i * 0.1 }}
                         className="bg-[#141414] border border-[#333] p-3 text-center"
-                      >
+                >
                         <div className="text-lg mb-1" style={{ color: agent.color }}>{stat.icon}</div>
                         <div className="text-xl font-bold">{stat.value}</div>
                         <div className="text-[10px] text-[#888]">{stat.label}</div>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
 
                 {/* Content */}
                 <div className="p-6 max-h-[40vh] overflow-y-auto">
@@ -1096,7 +1096,7 @@ export default function Dashboard() {
                   {agentMessages.length === 0 ? (
                     <div className="text-sm text-[#888] bg-[#141414] border border-[#333] p-4 mb-4">
                       No messages yet
-                    </div>
+        </div>
                   ) : (
                     <div className="space-y-2 mb-6">
                       {agentMessages.slice(-5).map((msg, i) => (
@@ -1112,7 +1112,7 @@ export default function Dashboard() {
                             {msg.message_type !== 'chat' && (
                               <span className="text-[10px] px-1.5 py-0.5 bg-[#333]">{msg.message_type}</span>
                             )}
-                          </div>
+      </div>
                           <p className="text-[#ccc]">{cleanContent(msg.content)}</p>
                         </motion.div>
                       ))}

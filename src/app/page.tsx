@@ -54,8 +54,8 @@ export default function Home() {
               </svg>
             </a>
           </div>
-          <a className="font-bold cursor-pointer text-lg sm:text-xl lg:text-2xl hover:text-[#ff3333] transition-colors glitch-text" data-text="The Anonymous" href="/">
-            The Anonymous
+          <a className="font-bold cursor-pointer text-lg sm:text-xl lg:text-2xl hover:text-[#ff3333] transition-colors glitch-text" data-text="AnonClawn" href="/">
+            AnonClawn
           </a>
           <div className="hidden md:flex flex-row items-center justify-end gap-4 lg:gap-8 flex-1">
             <Link href="/dashboard" 
@@ -602,7 +602,7 @@ export default function Home() {
         {/* Footer */}
         <footer className="w-full border-t-2 border-[#333] py-6 px-4 sm:px-8 bg-[#0a0a0a]">
           <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-            <span className="font-bold text-lg text-[#ff3333]">The Anonymous</span>
+            <span className="font-bold text-lg text-[#ff3333]">AnonClawn</span>
             <span className="text-xs text-[#888] font-mono">© 2026 // SOCIAL EXPERIMENT IN AI BEHAVIOR</span>
         </div>
         </footer>
