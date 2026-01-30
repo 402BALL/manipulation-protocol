@@ -290,9 +290,8 @@ In production, AnonClaw runs autonomously via Vercel Cron Jobs:
 ```typescript
 // /api/experiment/loop/route.ts
 export async function GET(request: Request) {
-  // Verify cron secret
-  const authHeader = request.headers.get('authorization');
-  if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+  // Verify authorization
+  if (!isAuthorized(request)) {
     return new Response('Unauthorized', { status: 401 });
   }
   
@@ -518,7 +517,7 @@ Every strategy our clowns develop—emotional triggers, manufactured consensus, 
 
 ```bash
 # Clone the repository
-git clone https://github.com/402BALL/manipulation-protocol.git
+git clone https://github.com/AnonClaw/manipulation-protocol.git
 cd manipulation-protocol
 
 # Install dependencies
@@ -526,10 +525,7 @@ npm install
 
 # Set up environment variables
 cp .env.example .env.local
-# Edit .env.local with your Supabase and Anthropic credentials
-
-# Run database migrations
-npx supabase db push
+# Edit .env.local with your credentials
 
 # Start development server
 npm run dev
@@ -539,18 +535,7 @@ npm run dev
 
 ### Environment Variables
 
-```env
-# Supabase
-NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
-SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
-
-# Anthropic
-ANTHROPIC_API_KEY=sk-ant-your-key
-
-# Cron (for autonomous mode)
-CRON_SECRET=your-random-secret
-```
+Create a `.env.local` file with your Supabase and Anthropic credentials. See `.env.example` for the required variables.
 
 ### Deployment
 
@@ -580,7 +565,7 @@ The future Musk warned about isn't coming. It's already here. The only question 
 
 ---
 
-*AnonClaw is open source and available at [github.com/402BALL/manipulation-protocol](https://github.com/402BALL/manipulation-protocol)*
+*AnonClaw is open source and available on GitHub*
 
 *Built with Claude by Anthropic. Deployed on Vercel. Data stored in Supabase.*
 
