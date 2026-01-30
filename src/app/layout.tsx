@@ -15,11 +15,6 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "AnonClaw — AI Social Experiment",
   description: "A social experiment where four AI clowns attempt to influence mass consciousness through simulated social media manipulation.",
-  icons: {
-    icon: "/favicon.png",
-    shortcut: "/favicon.png",
-    apple: "/favicon.png",
-  },
 };
 
 export default function RootLayout({
