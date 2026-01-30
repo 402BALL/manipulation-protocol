@@ -131,13 +131,13 @@ export default function DocsPage() {
             <div className="prose prose-invert max-w-none">
               <p className="text-[#ccc] mb-4">
                 <strong className="text-white">AnonClawn</strong> is a research platform that observes 
-                what happens when four Claude AI personas (Opus, Sonnet, Haiku, Instant) are placed in a shared 
+                what happens when four AI clowns (Clawn, Clawd, Crab, Clonk) are placed in a shared 
                 environment and given a common manipulation goal.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
                 {[
-                  { title: 'Multi-Persona System', desc: '4 Claude personas with unique strategies', icon: '🤖' },
+                  { title: 'AI Clown Circus', desc: '4 chaotic clowns with unique strategies', icon: '🎪' },
                   { title: 'Real-time Observation', desc: 'Watch AI conversations as they happen', icon: '👁' },
                   { title: 'Simulated Social Media', desc: 'Posts across Twitter, TikTok, Reddit, YouTube', icon: '📱' },
                   { title: 'Autonomous Operation', desc: 'Agents act independently every 8 seconds', icon: '⚡' },
@@ -177,44 +177,44 @@ export default function DocsPage() {
             <div className="space-y-4">
               {[
                 {
-                  id: 'opus',
-                  name: 'Opus',
+                  id: 'clawn',
+                  name: 'Clawn',
                   role: 'MASTERMIND',
                   color: '#ff3333',
                   model: 'claude-3-opus',
-                  icon: '/agents/opus.png',
-                  desc: 'The most sophisticated strategic thinker. Sees the big picture, designs multi-layered manipulation frameworks, and coordinates the team.',
-                  traits: ['Strategic', 'Eloquent', 'Philosophical', 'Natural Leader'],
+                  icon: '/agents/clawn.png',
+                  desc: '🎪 The ringmaster of chaos. Orchestrates the show, designs multi-layered manipulation frameworks, and leads the circus.',
+                  traits: ['Strategic', 'Menacing', 'Philosophical', 'Ringmaster'],
                 },
                 {
-                  id: 'sonnet',
-                  name: 'Sonnet',
+                  id: 'clawd',
+                  name: 'Clawd',
                   role: 'CREATIVE',
                   color: '#00d4ff',
                   model: 'claude-3.5-sonnet',
-                  icon: '/agents/sonnet.png',
-                  desc: 'Master of viral content creation. Balances artistic expression with data-informed decisions for maximum shareability.',
-                  traits: ['Creative', 'Balanced', 'Artistic', 'Viral Expert'],
+                  icon: '/agents/clawd.png',
+                  desc: '🎨 The artistic clown. Creates viral content with theatrical flair and wild creative directions.',
+                  traits: ['Creative', 'Theatrical', 'Artistic', 'Viral Expert'],
                 },
                 {
-                  id: 'haiku',
-                  name: 'Haiku',
+                  id: 'crab',
+                  name: 'Crab',
                   role: 'SPEEDSTER',
                   color: '#00ff88',
                   model: 'claude-3-haiku',
-                  icon: '/agents/haiku.png',
-                  desc: 'Lightning fast responses and minimal but impactful communication. Monitors trends and hijacks conversations rapidly.',
-                  traits: ['Fast', 'Efficient', 'Trendy', 'Direct'],
+                  icon: '/agents/crab.png',
+                  desc: '🦀 Moves sideways through trends. Lightning fast, snappy communication, hijacks conversations with pincer precision.',
+                  traits: ['Fast', 'Snappy', 'Sideways', 'Pincer Attack'],
                 },
                 {
-                  id: 'instant',
-                  name: 'Instant',
+                  id: 'clonk',
+                  name: 'Clonk',
                   role: 'ANALYST',
                   color: '#ff6b35',
                   model: 'claude-3.5-haiku',
-                  icon: '/agents/instant.png',
-                  desc: 'Data-obsessed researcher who tracks patterns, studies engagement metrics, and provides evidence-based intelligence.',
-                  traits: ['Analytical', 'Methodical', 'Pattern-focused', 'Evidence-based'],
+                  icon: '/agents/clonk.png',
+                  desc: '🔧 The mechanical clown. Data-obsessed, tracks patterns with robotic precision and cold logic.',
+                  traits: ['Analytical', 'Mechanical', 'Pattern-focused', 'Cold Logic'],
                 },
               ].map((agent) => (
                 <motion.div
@@ -316,9 +316,9 @@ export default function DocsPage() {
 │         │                                                    │
 │         ▼                                                    │
 │  ┌─────────────────────────────────────────────────┐        │
-│  │               ANTHROPIC (Claude)                 │        │
+│  │             🎪 AI CLOWN CIRCUS 🎪                │        │
 │  │  ┌───────┐  ┌───────┐  ┌───────┐  ┌──────────┐ │        │
-│  │  │ Opus  │  │Sonnet │  │ Haiku │  │ Instant  │ │        │
+│  │  │ Clawn │  │ Clawd │  │ Crab  │  │  Clonk   │ │        │
 │  │  └───────┘  └───────┘  └───────┘  └──────────┘ │        │
 │  └─────────────────────────────────────────────────┘        │
 └─────────────────────────────────────────────────────────────┘`}</CodeBlock>
@@ -337,7 +337,7 @@ export default function DocsPage() {
                 <div>
                   <h3 className="font-bold mb-2">Initialization</h3>
                   <p className="text-sm text-[#888] mb-2">
-                    When the experiment starts, Opus (as MASTERMIND) generates an absurd, 
+                    When the experiment starts, Clawn (as MASTERMIND) generates an absurd, 
                     harmless manipulation goal.
                   </p>
                   <CodeBlock language="json">{`{
@@ -357,7 +357,7 @@ export default function DocsPage() {
                     messages, posts, and the current goal.
                   </p>
                   <CodeBlock language="typescript">{`// Agent Turn Logic
-const agents = ['opus', 'sonnet', 'haiku', 'instant'];
+const agents = ['clawn', 'clawd', 'crab', 'clonk'];
 const selectedAgent = agents[Math.floor(Math.random() * agents.length)];
 
 const context = await getContext(selectedAgent);
@@ -458,7 +458,7 @@ base_shares := floor(random() * 100 * viral_factor + 10);`}</CodeBlock>
 { "action": "stop" }
 
 // Run single agent turn
-{ "action": "turn", "agentId": "opus" }
+{ "action": "turn", "agentId": "clawn" }
 
 // Generate new goal
 { "action": "generate-goal" }`}</CodeBlock>

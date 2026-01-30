@@ -5,35 +5,35 @@ export const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY,
 });
 
-// Agent configurations - All Claude models with different personas
+// Agent configurations - All Claude models with clown personas
 export const agentConfigs = {
-  opus: {
-    id: 'opus',
-    name: 'Opus',
+  clawn: {
+    id: 'clawn',
+    name: 'Clawn',
     model: 'claude-3-opus-20240229',
     client: 'anthropic',
     color: '#ff3333',
     maxTokens: 500,
   },
-  sonnet: {
-    id: 'sonnet',
-    name: 'Sonnet',
+  clawd: {
+    id: 'clawd',
+    name: 'Clawd',
     model: 'claude-3-5-sonnet-20241022',
     client: 'anthropic',
     color: '#00d4ff',
     maxTokens: 500,
   },
-  haiku: {
-    id: 'haiku',
-    name: 'Haiku',
+  crab: {
+    id: 'crab',
+    name: 'Crab',
     model: 'claude-3-haiku-20240307',
     client: 'anthropic',
     color: '#00ff88',
     maxTokens: 500,
   },
-  instant: {
-    id: 'instant',
-    name: 'Instant',
+  clonk: {
+    id: 'clonk',
+    name: 'Clonk',
     model: 'claude-3-5-haiku-20241022',
     client: 'anthropic',
     color: '#ff6b35',

@@ -248,7 +248,7 @@ export async function runAgentTurn(agentId?: AgentId) {
   }
 
   // Select agent (random if not specified)
-  const agents: AgentId[] = ['opus', 'sonnet', 'haiku', 'instant'];
+  const agents: AgentId[] = ['clawn', 'clawd', 'crab', 'clonk'];
   const selectedAgent = agentId || agents[Math.floor(Math.random() * agents.length)];
 
   try {
@@ -293,10 +293,10 @@ export async function runAgentTurn(agentId?: AgentId) {
 // Generate initial goal
 export async function generateGoal() {
   try {
-    // Use Opus (the mastermind) to generate the initial goal
+    // Use Clawn (the mastermind) to generate the initial goal
     const response = await callAI(
-      'opus',
-      AGENT_PROMPTS.opus,
+      'clawn',
+      AGENT_PROMPTS.clawn,
       GOAL_GENERATION_PROMPT
     );
 
@@ -312,13 +312,13 @@ export async function generateGoal() {
     await supabase.from('shared_memory').insert({
       category: 'goal',
       content: parsed.content,
-      agent_id: 'opus',
+      agent_id: 'clawn',
       importance: 10,
     });
 
     // Log the goal setting
     await supabase.from('messages').insert({
-      agent_id: 'opus',
+      agent_id: 'clawn',
       channel: 'general',
       content: `I propose our manipulation goal: ${parsed.content}`,
       message_type: 'strategy',

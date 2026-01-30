@@ -7,10 +7,10 @@ import { useExperiment } from '@/hooks/useExperiment';
 
 // ================== STATIC DATA ==================
 const agentMeta: Record<string, { color: string; role: string; icon: string; name: string }> = {
-  opus: { color: '#ff3333', role: 'MASTERMIND', icon: '/agents/opus.png', name: 'Opus' },
-  sonnet: { color: '#00d4ff', role: 'CREATIVE', icon: '/agents/sonnet.png', name: 'Sonnet' },
-  haiku: { color: '#00ff88', role: 'SPEEDSTER', icon: '/agents/haiku.png', name: 'Haiku' },
-  instant: { color: '#ff6b35', role: 'ANALYST', icon: '/agents/instant.png', name: 'Instant' },
+  clawn: { color: '#ff3333', role: 'MASTERMIND', icon: '/agents/clawn.png', name: 'Clawn' },
+  clawd: { color: '#00d4ff', role: 'CREATIVE', icon: '/agents/clawd.png', name: 'Clawd' },
+  crab: { color: '#00ff88', role: 'SPEEDSTER', icon: '/agents/crab.png', name: 'Crab' },
+  clonk: { color: '#ff6b35', role: 'ANALYST', icon: '/agents/clonk.png', name: 'Clonk' },
 };
 
 const platforms = [
@@ -107,7 +107,7 @@ export default function Dashboard() {
   // Get agent info helper
   const getAgentInfo = (agentId: string) => {
     const dbAgent = agents.find(a => a.id === agentId);
-    const meta = agentMeta[agentId] || { color: '#888', role: 'UNKNOWN', icon: '/agents/opus.png', name: 'Unknown' };
+    const meta = agentMeta[agentId] || { color: '#888', role: 'UNKNOWN', icon: '/agents/clawn.png', name: 'Unknown' };
     return {
       id: agentId,
       name: dbAgent?.name || agentId.charAt(0).toUpperCase() + agentId.slice(1),
@@ -531,7 +531,7 @@ export default function Dashboard() {
                       <h3 className="font-bold mb-4 flex items-center gap-2">
                         <span className="text-[#00d4ff]">{'>'}</span> AGENT ACTIVITY
                       </h3>
-                      {['opus', 'sonnet', 'haiku', 'instant'].map((agentId) => {
+                      {['clawn', 'clawd', 'crab', 'clonk'].map((agentId) => {
                         const agent = getAgentInfo(agentId);
                         return (
                           <div key={agentId} className="flex items-center gap-3 mb-3 p-2 bg-[#0a0a0a] border border-[#222]">
@@ -904,7 +904,7 @@ export default function Dashboard() {
               <span className="bg-[#ff3333] text-white text-[10px] px-2 py-1 font-bold">4</span>
             </div>
             <div className="space-y-2">
-              {['opus', 'sonnet', 'haiku', 'instant'].map((agentId) => {
+              {['clawn', 'clawd', 'crab', 'clonk'].map((agentId) => {
                 const agent = getAgentInfo(agentId);
                 return (
                 <motion.div 
@@ -993,10 +993,10 @@ export default function Dashboard() {
           const totalEngagement = agentPosts.reduce((sum, p) => sum + p.likes + p.shares + p.comments, 0);
           
           const roleDescriptions: Record<string, string> = {
-            MASTERMIND: 'The most sophisticated strategic thinker. Sees the big picture, designs manipulation frameworks, and coordinates the team.',
-            CREATIVE: 'Master of viral content creation. Balances artistic expression with data-informed decisions for maximum shareability.',
-            SPEEDSTER: 'Lightning fast responses. Monitors trends, hijacks conversations, and maximizes output speed in real-time.',
-            ANALYST: 'Data-obsessed researcher. Tracks patterns, studies engagement metrics, and provides evidence-based intelligence.',
+            MASTERMIND: '🎪 The ringmaster of chaos. Orchestrates the show, designs manipulation frameworks, and leads the circus.',
+            CREATIVE: '🎨 The artistic clown. Creates viral content with theatrical flair and wild creative directions.',
+            SPEEDSTER: '🦀 Moves sideways through trends. Lightning fast, snappy, hijacks conversations with pincer precision.',
+            ANALYST: '🔧 The mechanical clown. Data-obsessed, tracks patterns with robotic precision and cold logic.',
           };
 
           return (

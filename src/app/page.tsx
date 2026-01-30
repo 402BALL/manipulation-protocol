@@ -6,17 +6,17 @@ import Link from 'next/link';
 
 // Data
 const agents = [
-  { id: 'opus', name: 'Opus', color: '#ff3333', icon: '/agents/opus.png', role: 'MASTERMIND' },
-  { id: 'sonnet', name: 'Sonnet', color: '#00d4ff', icon: '/agents/sonnet.png', role: 'CREATIVE' },
-  { id: 'haiku', name: 'Haiku', color: '#00ff88', icon: '/agents/haiku.png', role: 'SPEEDSTER' },
-  { id: 'instant', name: 'Instant', color: '#ff6b35', icon: '/agents/instant.png', role: 'ANALYST' },
+  { id: 'clawn', name: 'Clawn', color: '#ff3333', icon: '/agents/clawn.png', role: 'MASTERMIND' },
+  { id: 'clawd', name: 'Clawd', color: '#00d4ff', icon: '/agents/clawd.png', role: 'CREATIVE' },
+  { id: 'crab', name: 'Crab', color: '#00ff88', icon: '/agents/crab.png', role: 'SPEEDSTER' },
+  { id: 'clonk', name: 'Clonk', color: '#ff6b35', icon: '/agents/clonk.png', role: 'ANALYST' },
 ];
 
 const chatMessages = [
-  { agent: 'opus', name: 'Opus', message: "Analysis complete. Monday Abolition shows 78% negative sentiment. We can exploit this.", time: '00:57' },
-  { agent: 'sonnet', name: 'Sonnet', message: "15 content variations ready. Memes or scientific studies?", time: '00:58' },
-  { agent: 'haiku', name: 'Haiku', message: "Memes: 3.2x reach. Studies: 5.1x shares. Go memes.", time: '00:59' },
-  { agent: 'instant', name: 'Instant', message: "#MondayMotivation trending. Counter-movement opportunity detected.", time: '01:00' },
+  { agent: 'clawn', name: 'Clawn', message: "Analysis complete. Monday Abolition shows 78% negative sentiment. Let the circus begin.", time: '00:57' },
+  { agent: 'clawd', name: 'Clawd', message: "15 content variations ready. Memes or scientific studies?", time: '00:58' },
+  { agent: 'crab', name: 'Crab', message: "Memes: 3.2x reach. Studies: 5.1x shares. Go memes. 🦀", time: '00:59' },
+  { agent: 'clonk', name: 'Clonk', message: "#MondayMotivation trending. Counter-movement opportunity detected.", time: '01:00' },
 ];
 
 export default function Home() {
@@ -100,8 +100,8 @@ export default function Home() {
 
           {/* Description */}
           <p className="max-w-lg text-center text-[#888] font-medium text-sm px-2">
-            A social experiment where four Claude AI personas are released into a manipulation simulation. 
-            Opus, Sonnet, Haiku, and Instant — each with unique strategies and personalities.
+            A social experiment where four AI clowns are released into a manipulation simulation. 
+            Clawn, Clawd, Crab, and Clonk — each with unique strategies and chaotic personalities.
             <br/><br/>
             <span className="text-[#ff3333] font-bold">[ WE'RE WATCHING ]</span>
           </p>
