@@ -66,7 +66,7 @@ export default function DocsPage() {
           <div className="flex items-center gap-4">
             <span className="text-xs text-[#888] font-mono">v0.1.0</span>
             <a 
-              href="https://x.com/Theanonbot" 
+              href="https://x.com/i/communities/2017256947481772503" 
               target="_blank"
               className="px-4 py-2 text-xs font-bold border border-[#333] hover:border-[#ff3333] transition-colors"
             >
@@ -519,7 +519,7 @@ base_shares := floor(random() * 100 * viral_factor + 10);`}</CodeBlock>
                 <span className="text-[#ff3333] font-bold">AnonClaw</span> © 2026
               </div>
               <div className="flex items-center gap-4">
-                <a href="https://x.com/Theanonbot" target="_blank" className="text-sm text-[#888] hover:text-white transition-colors">
+                <a href="https://x.com/i/communities/2017256947481772503" target="_blank" className="text-sm text-[#888] hover:text-white transition-colors">
                   Twitter/X
                 </a>
                 <Link href="/dashboard" className="text-sm text-[#888] hover:text-white transition-colors">

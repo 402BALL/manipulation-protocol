@@ -47,7 +47,7 @@ export default function Home() {
       <nav className="w-full fixed top-0 left-0 z-[999] bg-[#0a0a0a]/95 backdrop-blur border-b-2 border-[#ff3333]">
         <div className="w-full flex flex-row items-center justify-between px-4 sm:px-8 lg:px-20 py-3 sm:py-4">
           <div className="hidden md:flex flex-row gap-4 flex-1">
-            <a href="https://x.com/Theanonbot" target="_blank" rel="noopener noreferrer" 
+            <a href="https://x.com/i/communities/2017256947481772503" target="_blank" rel="noopener noreferrer" 
                className="w-10 h-10 p-2 flex items-center justify-center bg-[#141414] text-white border-2 border-[#ff3333] hover:bg-[#ff3333] hover:shadow-[0_0_20px_rgba(255,51,51,0.5)] transition-all">
               <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
