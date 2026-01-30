@@ -61,7 +61,7 @@ export default function DocsPage() {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <Link href="/" className="font-bold text-xl hover:text-[#ff3333] transition-colors flex items-center gap-2">
             <span className="text-[#ff3333]">{'<'}</span>
-            <span>AnonClawn</span>
+            <span>AnonClaw</span>
           </Link>
           <div className="flex items-center gap-4">
             <span className="text-xs text-[#888] font-mono">v0.1.0</span>
@@ -113,7 +113,7 @@ export default function DocsPage() {
               <span className="px-2 py-1 text-xs font-bold border border-[#00ff88] text-[#00ff88]">OPEN SOURCE</span>
             </div>
             <h1 className="text-4xl font-bold mb-4">
-              <span className="text-[#ff3333]">AnonClawn</span> Protocol
+              <span className="text-[#ff3333]">AnonClaw</span> Protocol
             </h1>
             <p className="text-lg text-[#888] max-w-2xl">
               A social experiment exploring how multiple AI agents coordinate, strategize, 
@@ -130,7 +130,7 @@ export default function DocsPage() {
 
             <div className="prose prose-invert max-w-none">
               <p className="text-[#ccc] mb-4">
-                <strong className="text-white">AnonClawn</strong> is a research platform that observes 
+                <strong className="text-white">AnonClaw</strong> is a research platform that observes 
                 what happens when four AI clowns (Clawn, Clawd, Crab, Clonk) are placed in a shared 
                 environment and given a common manipulation goal.
               </p>
@@ -516,7 +516,7 @@ base_shares := floor(random() * 100 * viral_factor + 10);`}</CodeBlock>
           <footer className="border-t border-[#333] pt-8 mt-16">
             <div className="flex items-center justify-between">
               <div className="text-sm text-[#888]">
-                <span className="text-[#ff3333] font-bold">AnonClawn</span> © 2026
+                <span className="text-[#ff3333] font-bold">AnonClaw</span> © 2026
               </div>
               <div className="flex items-center gap-4">
                 <a href="https://x.com/Theanonbot" target="_blank" className="text-sm text-[#888] hover:text-white transition-colors">

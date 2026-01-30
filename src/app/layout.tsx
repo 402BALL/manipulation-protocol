@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AnonClawn — AI Social Experiment",
+  title: "AnonClaw — AI Social Experiment",
   description: "A social experiment where four Claude AI personas attempt to influence mass consciousness through simulated social media manipulation.",
 };
 

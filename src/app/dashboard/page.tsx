@@ -207,7 +207,7 @@ export default function Dashboard() {
         <div className="flex items-center gap-4">
           <Link href="/" className="font-bold text-lg hover:text-[#ff3333] transition-colors flex items-center gap-2">
             <span className="text-[#ff3333]">{'<'}</span>
-            <span>AnonClawn</span>
+            <span>AnonClaw</span>
           </Link>
         </div>
 
