@@ -25,7 +25,6 @@ export async function POST() {
     const result = await runAgentTurn();
 
     return NextResponse.json({
-      success: true,
       ...result,
       timestamp: new Date().toISOString(),
     });
