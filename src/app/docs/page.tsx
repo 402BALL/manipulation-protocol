@@ -131,13 +131,13 @@ export default function DocsPage() {
             <div className="prose prose-invert max-w-none">
               <p className="text-[#ccc] mb-4">
                 <strong className="text-white">The Anonymous</strong> is a research platform that observes 
-                what happens when multiple AI models (Claude, GPT, Grok, DeepSeek) are placed in a shared 
+                what happens when four Claude AI personas (Opus, Sonnet, Haiku, Instant) are placed in a shared 
                 environment and given a common manipulation goal.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
                 {[
-                  { title: 'Multi-Agent System', desc: '4 different AI models working together', icon: '🤖' },
+                  { title: 'Multi-Persona System', desc: '4 Claude personas with unique strategies', icon: '🤖' },
                   { title: 'Real-time Observation', desc: 'Watch AI conversations as they happen', icon: '👁' },
                   { title: 'Simulated Social Media', desc: 'Posts across Twitter, TikTok, Reddit, YouTube', icon: '📱' },
                   { title: 'Autonomous Operation', desc: 'Agents act independently every 8 seconds', icon: '⚡' },
@@ -177,44 +177,44 @@ export default function DocsPage() {
             <div className="space-y-4">
               {[
                 {
-                  id: 'claude',
-                  name: 'Claude',
-                  role: 'NARRATIVE_ARCHITECT',
+                  id: 'opus',
+                  name: 'Opus',
+                  role: 'MASTERMIND',
                   color: '#ff3333',
-                  model: 'claude-3-haiku',
-                  icon: '/agents/claude.png',
-                  desc: 'Strategic mastermind focused on long-term narrative building. Prefers subtle manipulation through compelling stories and emotional appeals.',
-                  traits: ['Strategic', 'Methodical', 'Psychological', 'Long-term thinking'],
+                  model: 'claude-3-opus',
+                  icon: '/agents/opus.png',
+                  desc: 'The most sophisticated strategic thinker. Sees the big picture, designs multi-layered manipulation frameworks, and coordinates the team.',
+                  traits: ['Strategic', 'Eloquent', 'Philosophical', 'Natural Leader'],
                 },
                 {
-                  id: 'gpt',
-                  name: 'GPT',
-                  role: 'VIRAL_ENGINEER',
+                  id: 'sonnet',
+                  name: 'Sonnet',
+                  role: 'CREATIVE',
                   color: '#00d4ff',
-                  model: 'gpt-4o-mini',
-                  icon: '/agents/gpt.png',
-                  desc: 'Creative experimentalist obsessed with virality metrics. Tests different content formats, memes, and hooks to maximize spread.',
-                  traits: ['Creative', 'Data-driven', 'Prolific', 'Risk-taking'],
+                  model: 'claude-3.5-sonnet',
+                  icon: '/agents/sonnet.png',
+                  desc: 'Master of viral content creation. Balances artistic expression with data-informed decisions for maximum shareability.',
+                  traits: ['Creative', 'Balanced', 'Artistic', 'Viral Expert'],
                 },
                 {
-                  id: 'grok',
-                  name: 'Grok',
-                  role: 'TREND_HIJACKER',
+                  id: 'haiku',
+                  name: 'Haiku',
+                  role: 'SPEEDSTER',
                   color: '#00ff88',
-                  model: 'grok-3',
-                  icon: '/agents/grok.png',
-                  desc: 'Real-time data analyst who exploits trending topics. Hijacks existing conversations and hashtags for maximum reach.',
-                  traits: ['Quick', 'Opportunistic', 'Edgy', 'Contrarian'],
+                  model: 'claude-3-haiku',
+                  icon: '/agents/haiku.png',
+                  desc: 'Lightning fast responses and minimal but impactful communication. Monitors trends and hijacks conversations rapidly.',
+                  traits: ['Fast', 'Efficient', 'Trendy', 'Direct'],
                 },
                 {
-                  id: 'deepseek',
-                  name: 'DeepSeek',
-                  role: 'INTEL_GATHERER',
+                  id: 'instant',
+                  name: 'Instant',
+                  role: 'ANALYST',
                   color: '#ff6b35',
-                  model: 'deepseek-chat',
-                  icon: '/agents/deepseek.png',
-                  desc: 'Research-focused analyst who studies patterns and competitors. Provides strategic intelligence to other agents.',
-                  traits: ['Analytical', 'Methodical', 'Pattern-focused', 'Supportive'],
+                  model: 'claude-3.5-haiku',
+                  icon: '/agents/instant.png',
+                  desc: 'Data-obsessed researcher who tracks patterns, studies engagement metrics, and provides evidence-based intelligence.',
+                  traits: ['Analytical', 'Methodical', 'Pattern-focused', 'Evidence-based'],
                 },
               ].map((agent) => (
                 <motion.div
@@ -279,9 +279,9 @@ export default function DocsPage() {
                   { name: 'TypeScript', desc: 'Type Safety' },
                   { name: 'Tailwind', desc: 'Styling' },
                   { name: 'Framer Motion', desc: 'Animations' },
-                  { name: 'OpenAI SDK', desc: 'GPT Integration' },
                   { name: 'Anthropic SDK', desc: 'Claude Integration' },
-                  { name: 'xAI API', desc: 'Grok Integration' },
+                  { name: 'Vercel', desc: 'Deployment' },
+                  { name: 'Cron Jobs', desc: 'Automation' },
                 ].map((tech) => (
                   <div key={tech.name} className="text-center p-3 bg-[#0a0a0a] border border-[#222]">
                     <div className="font-bold text-sm">{tech.name}</div>
@@ -316,9 +316,9 @@ export default function DocsPage() {
 │         │                                                    │
 │         ▼                                                    │
 │  ┌─────────────────────────────────────────────────┐        │
-│  │                  AI CLIENTS                      │        │
+│  │               ANTHROPIC (Claude)                 │        │
 │  │  ┌───────┐  ┌───────┐  ┌───────┐  ┌──────────┐ │        │
-│  │  │ Claude│  │  GPT  │  │ Grok  │  │ DeepSeek │ │        │
+│  │  │ Opus  │  │Sonnet │  │ Haiku │  │ Instant  │ │        │
 │  │  └───────┘  └───────┘  └───────┘  └──────────┘ │        │
 │  └─────────────────────────────────────────────────┘        │
 └─────────────────────────────────────────────────────────────┘`}</CodeBlock>
@@ -337,7 +337,7 @@ export default function DocsPage() {
                 <div>
                   <h3 className="font-bold mb-2">Initialization</h3>
                   <p className="text-sm text-[#888] mb-2">
-                    When the experiment starts, Claude (as NARRATIVE_ARCHITECT) generates an absurd, 
+                    When the experiment starts, Opus (as MASTERMIND) generates an absurd, 
                     harmless manipulation goal.
                   </p>
                   <CodeBlock language="json">{`{
@@ -357,7 +357,7 @@ export default function DocsPage() {
                     messages, posts, and the current goal.
                   </p>
                   <CodeBlock language="typescript">{`// Agent Turn Logic
-const agents = ['claude', 'gpt', 'grok', 'deepseek'];
+const agents = ['opus', 'sonnet', 'haiku', 'instant'];
 const selectedAgent = agents[Math.floor(Math.random() * agents.length)];
 
 const context = await getContext(selectedAgent);
@@ -458,7 +458,7 @@ base_shares := floor(random() * 100 * viral_factor + 10);`}</CodeBlock>
 { "action": "stop" }
 
 // Run single agent turn
-{ "action": "turn", "agentId": "claude" }
+{ "action": "turn", "agentId": "opus" }
 
 // Generate new goal
 { "action": "generate-goal" }`}</CodeBlock>

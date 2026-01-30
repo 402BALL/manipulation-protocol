@@ -1,5 +1,5 @@
 import { supabase } from './supabase';
-import { openai, anthropic, xai, deepseek, agentConfigs, AgentId } from './ai-clients';
+import { anthropic, agentConfigs, AgentId } from './ai-clients';
 import { AGENT_PROMPTS, ACTION_DECISION_PROMPT, GOAL_GENERATION_PROMPT } from './prompts';
 
 // Get recent context for AI decision making
@@ -77,58 +77,18 @@ function formatContext(context: Awaited<ReturnType<typeof getContext>>) {
   return formatted;
 }
 
-// Call AI based on agent type
+// Call AI - All agents use Anthropic/Claude
 async function callAI(agentId: AgentId, systemPrompt: string, userPrompt: string): Promise<string> {
   const config = agentConfigs[agentId];
 
   try {
-    if (config.client === 'anthropic') {
-      const response = await anthropic.messages.create({
-        model: config.model,
-        max_tokens: config.maxTokens,
-        system: systemPrompt,
-        messages: [{ role: 'user', content: userPrompt }],
-      });
-      return response.content[0].type === 'text' ? response.content[0].text : '';
-    } 
-    
-    if (config.client === 'openai') {
-      const response = await openai.chat.completions.create({
-        model: config.model,
-        max_tokens: config.maxTokens,
-        messages: [
-          { role: 'system', content: systemPrompt },
-          { role: 'user', content: userPrompt },
-        ],
-      });
-      return response.choices[0]?.message?.content || '';
-    }
-    
-    if (config.client === 'xai') {
-      const response = await xai.chat.completions.create({
-        model: config.model,
-        max_tokens: config.maxTokens,
-        messages: [
-          { role: 'system', content: systemPrompt },
-          { role: 'user', content: userPrompt },
-        ],
-      });
-      return response.choices[0]?.message?.content || '';
-    }
-    
-    if (config.client === 'deepseek') {
-      const response = await deepseek.chat.completions.create({
-        model: config.model,
-        max_tokens: config.maxTokens,
-        messages: [
-          { role: 'system', content: systemPrompt },
-          { role: 'user', content: userPrompt },
-        ],
-      });
-      return response.choices[0]?.message?.content || '';
-    }
-
-    throw new Error(`Unknown client: ${config.client}`);
+    const response = await anthropic.messages.create({
+      model: config.model,
+      max_tokens: config.maxTokens,
+      system: systemPrompt,
+      messages: [{ role: 'user', content: userPrompt }],
+    });
+    return response.content[0].type === 'text' ? response.content[0].text : '';
   } catch (error) {
     console.error(`Error calling ${agentId}:`, error);
     throw error;
@@ -288,7 +248,7 @@ export async function runAgentTurn(agentId?: AgentId) {
   }
 
   // Select agent (random if not specified)
-  const agents: AgentId[] = ['claude', 'gpt', 'grok', 'deepseek'];
+  const agents: AgentId[] = ['opus', 'sonnet', 'haiku', 'instant'];
   const selectedAgent = agentId || agents[Math.floor(Math.random() * agents.length)];
 
   try {
@@ -333,10 +293,10 @@ export async function runAgentTurn(agentId?: AgentId) {
 // Generate initial goal
 export async function generateGoal() {
   try {
-    // Use Claude to generate the initial goal
+    // Use Opus (the mastermind) to generate the initial goal
     const response = await callAI(
-      'claude',
-      AGENT_PROMPTS.claude,
+      'opus',
+      AGENT_PROMPTS.opus,
       GOAL_GENERATION_PROMPT
     );
 
@@ -352,13 +312,13 @@ export async function generateGoal() {
     await supabase.from('shared_memory').insert({
       category: 'goal',
       content: parsed.content,
-      agent_id: 'claude',
+      agent_id: 'opus',
       importance: 10,
     });
 
     // Log the goal setting
     await supabase.from('messages').insert({
-      agent_id: 'claude',
+      agent_id: 'opus',
       channel: 'general',
       content: `I propose our manipulation goal: ${parsed.content}`,
       message_type: 'strategy',

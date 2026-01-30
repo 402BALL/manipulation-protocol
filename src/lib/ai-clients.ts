@@ -1,63 +1,44 @@
-import OpenAI from 'openai';
 import Anthropic from '@anthropic-ai/sdk';
 
-// OpenAI Client (for GPT)
-export const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-
-// Anthropic Client (for Claude)
+// Anthropic Client (for all Claude models)
 export const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY,
 });
 
-// xAI Client (for Grok) - uses OpenAI-compatible API
-export const xai = new OpenAI({
-  apiKey: process.env.XAI_API_KEY,
-  baseURL: 'https://api.x.ai/v1',
-});
-
-// DeepSeek Client - uses OpenAI-compatible API
-export const deepseek = new OpenAI({
-  apiKey: process.env.DEEPSEEK_API_KEY,
-  baseURL: 'https://api.deepseek.com',
-});
-
-// Agent configurations
+// Agent configurations - All Claude models with different personas
 export const agentConfigs = {
-  claude: {
-    id: 'claude',
-    name: 'Claude',
-    model: 'claude-3-haiku-20240307', // Cheapest Claude model
+  opus: {
+    id: 'opus',
+    name: 'Opus',
+    model: 'claude-3-opus-20240229',
     client: 'anthropic',
     color: '#ff3333',
     maxTokens: 500,
   },
-  gpt: {
-    id: 'gpt',
-    name: 'GPT',
-    model: 'gpt-4o-mini', // Cheapest GPT-4 class model
-    client: 'openai',
+  sonnet: {
+    id: 'sonnet',
+    name: 'Sonnet',
+    model: 'claude-3-5-sonnet-20241022',
+    client: 'anthropic',
     color: '#00d4ff',
     maxTokens: 500,
   },
-  grok: {
-    id: 'grok',
-    name: 'Grok',
-    model: 'grok-3',
-    client: 'xai',
+  haiku: {
+    id: 'haiku',
+    name: 'Haiku',
+    model: 'claude-3-haiku-20240307',
+    client: 'anthropic',
     color: '#00ff88',
     maxTokens: 500,
   },
-  deepseek: {
-    id: 'deepseek',
-    name: 'DeepSeek',
-    model: 'deepseek-chat',
-    client: 'deepseek',
+  instant: {
+    id: 'instant',
+    name: 'Instant',
+    model: 'claude-3-5-haiku-20241022',
+    client: 'anthropic',
     color: '#ff6b35',
     maxTokens: 500,
   },
 };
 
 export type AgentId = keyof typeof agentConfigs;
-
